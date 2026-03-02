@@ -1,22 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Base / Surfaces */
+  /* Base*/
 
   --color-background: #edf0f3; /* gris claro - fondo general app */
   --color-surface: #ffffff; /* blanco - cards, modals */
   --color-surface-muted: #edf0f3; /* gris suave - fondo inputs */
   --color-muted: #e2e2e2; /* gris neutro - bordes, tablas */
 
-  /* Identidad */
-
-  --color-sidebar: #193251; /* azul oscuro */
-
-  /* Acciones e interacciones */
-
-  --color-primary: #1855a1; /* azul medio */
-  --color-primary-hover: #144784;
-
+  /* Identidad */ 
+  
+  --color-primary: #193251; /* azul oscuro */
+  --color-primary-hover: #144784; /* azul medio */
   --color-neutral: #b1b1b1; /* gris*/
 
   /* Estados */

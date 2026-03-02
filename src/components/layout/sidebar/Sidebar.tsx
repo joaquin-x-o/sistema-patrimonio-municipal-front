@@ -52,7 +52,7 @@ export default function Sidebar({ children }: Props) {
   return (
     <SidebarContext.Provider value={{ openMenu, toggleMenu, isExpanded, setIsExpanded }}>
       {/* render solo del navbar */}
-      <nav className={`bg-sidebar h-screen transition-all duration-300 flex flex-col shadow-xl ${isExpanded ? "w-72" : "w-20"}`}>
+      <nav className={`bg-primary h-screen transition-all duration-300 flex flex-col shadow-xl ${isExpanded ? "w-72" : "w-20"}`}>
         {children}
       </nav>
     </SidebarContext.Provider>
