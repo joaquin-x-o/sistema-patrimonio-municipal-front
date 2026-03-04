@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./SidebarProvider";
+
 
 interface Props {
     name: string;

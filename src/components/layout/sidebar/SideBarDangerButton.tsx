@@ -1,5 +1,5 @@
 import { Trash2 } from "lucide-react";
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./SidebarProvider";
 import { Link } from "react-router-dom";
 
 interface Props {

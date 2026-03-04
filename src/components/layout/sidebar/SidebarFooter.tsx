@@ -1,5 +1,6 @@
 import { Menu } from "lucide-react";
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./SidebarProvider";
+
 
 export default function SidebarFooter() {
     const { isExpanded, setIsExpanded } = useSidebar();

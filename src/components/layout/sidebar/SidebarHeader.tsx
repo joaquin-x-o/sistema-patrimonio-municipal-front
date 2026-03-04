@@ -1,4 +1,5 @@
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "./SidebarProvider";
+
 
 interface Props {
     logoSrc: string;
