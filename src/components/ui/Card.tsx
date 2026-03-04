@@ -12,10 +12,10 @@ interface Props {
 
 export function Card({ title, children, footerLinkTo, footerLinkLabel = "Ver todos", onFooterClick }: Props) {
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-full">
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-full overflow-x-hidden">
             {/* titulo */}
             <div className="p-4 border-b border-slate-200">
-                <h2 className="text-foreground-muted font-bold uppercase text-sm tracking-wide">
+                <h2 className="text-foreground-muted font-bold uppercase text-m tracking-wide">
                     {title}
                 </h2>
             </div>

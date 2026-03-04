@@ -23,9 +23,9 @@ export function Bar({ label, value, max }: Props) {
     }, [percentage]);
 
     return (
-        <div className="flex items-center gap-4 mb-4 last:mb-0">
+        <div className="flex items-center gap-4 mb-4 mx-5 last:mb-0">
             {/* label */}
-            <div className="w-24 text-sm text-foreground-muted truncate">
+            <div className="w-24 text-s, text-foreground-muted truncate">
                 {label}
             </div>
 
@@ -38,7 +38,7 @@ export function Bar({ label, value, max }: Props) {
             </div>
 
             {/* valor que representa la barra */}
-            <div className="w-10 text-right text-sm text-slate-600">
+            <div className="w-10 text-right text-m text-slate-900">
                 {value}
             </div>
         </div>
