@@ -48,7 +48,7 @@ export default function AppSidebar() {
                         { label: 'Deshabilitar área', to: '/area/deshabilitar' },
                         { label: 'Habilitar área', to: '/area/habilitar' },
                         { label: 'Ver áreas', to: '/area/gestion-areas' },
-                        { label: 'Eliminar', to: '/area/eliminar', danger: true }
+                        { label: 'Eliminar área', to: '/area/eliminar', danger: true }
                     ]}
                 />
 
@@ -74,7 +74,7 @@ export default function AppSidebar() {
                         { label: 'Deshabilitar usuario', to: '/usuario/deshabilitar' },
                         { label: 'Habilitar usuario', to: "/usuario/habilitar" },
                         { label: 'Ver usuarios', to: '/usuario/gestion-usuarios' },
-                        { label: 'Eliminar usuarios', to: '/usuario/eliminar', danger: true }
+                        { label: 'Eliminar usuario', to: '/usuario/eliminar', danger: true }
                     ]}
                 />
             </div>
