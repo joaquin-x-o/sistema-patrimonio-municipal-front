@@ -16,13 +16,34 @@ interface Props {
 
 // COMPONENTE PRINCIPAL 
 export default function Sidebar({ children }: Props) {
-
-  const { isExpanded } = useSidebar();
+  const { isExpanded, setIsExpanded } = useSidebar();
 
   return (
-    <nav className={`bg-primary h-screen transition-all duration-300 flex flex-col shadow-xl ${isExpanded ? "w-72" : "w-20"}`}>
-      {children}
-    </nav>
+    <>
+      {/* OVERLAY: Fondo oscuro (Solo móvil) */}
+      {isExpanded && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity"
+          onClick={() => setIsExpanded(false)}
+        />
+      )}
+
+      <nav
+        className={`
+          bg-primary h-screen flex flex-col shadow-xl transition-all duration-300 ease-in-out
+          
+          /* MÓVIL */
+          fixed z-50 top-0 left-0 w-72
+          ${isExpanded ? "translate-x-0" : "-translate-x-full"}
+          
+          /* DESKTOP */
+          md:relative md:translate-x-0
+          ${isExpanded ? "md:w-72" : "md:w-20"}
+        `}
+      >
+        {children}
+      </nav>
+    </>
   );
 }
 
