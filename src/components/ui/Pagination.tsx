@@ -16,7 +16,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
                 variant="neutral"
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="w-8 h-8 !px-0 !py-0 !text-xs"
+                className="w-8 h-8 px-0! py-0! text-xs!"
             >
                 {"<"}
             </Button>
@@ -31,7 +31,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
                 variant="neutral"
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="w-8 h-8 !px-0 !py-0 !text-xs"
+                className="w-8 h-8 px-0! py-0! text-xs!"
             >
                 {">"}
             </Button>
