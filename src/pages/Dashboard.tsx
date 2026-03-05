@@ -1,13 +1,16 @@
-import { Package, AlertTriangle, FileDown } from "lucide-react";
 import { SummaryCard } from "../components/ui/SummaryCard";
 import { Card } from "../components/ui/Card";
 import { Bar } from "../components/ui/BarGraph";
 import { useSidebar } from "../components/layout/sidebar/SidebarProvider";
 import { Table } from "../components/ui/Table";
-import { ProductColumnNames } from "../components/features/products/ProductColumnNames";
-import { mockProductsPageOne } from "../mock/productsMock";
 import { Button } from "../components/ui/Button";
+import { ProductColumnNames } from "../components/features/products/ProductColumnNames";
 
+import { mockProductsPageOne } from "../mock/productsMock";
+import { getDept } from "../mock/departmentsMock";
+
+import { Package, AlertTriangle, FileDown } from "lucide-react";
+import { DepartmentNameFormat } from "../components/features/department/DepartmentNameFormat";
 
 
 export default function Dashboard() {
@@ -45,9 +48,24 @@ export default function Dashboard() {
                 <div className="lg:col-span-2">
                     {/* grafico de gestion de areas */}
                     <Card title="GESTIÓN DE ÁREAS" footerLinkTo="/area/gestion-areas">
-                        <Bar label="Patrimonio" value={842} max={1000} />
-                        <Bar label="Cultura" value={654} max={1000} />
-                        <Bar label="Tránsito" value={480} max={1000} />
+                        <Bar label={
+                            <DepartmentNameFormat
+                                departmentCode={getDept("B2").departmentCode}
+                                name={getDept("B2").name}
+                            />
+                        } value={842} max={1000} />
+                        <Bar label={
+                            <DepartmentNameFormat
+                                departmentCode={getDept("C4").departmentCode}
+                                name={getDept("C4").name}
+                            />
+                        } value={654} max={1000} />
+                        <Bar label={
+                            <DepartmentNameFormat
+                                departmentCode={getDept("T1").departmentCode}
+                                name={getDept("T1").name}
+                            />
+                        } value={480} max={1000} />
                     </Card>
                 </div>
 

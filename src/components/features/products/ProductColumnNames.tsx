@@ -3,6 +3,7 @@ import type { ProductShortResponse } from "../../../interfaces/productShortRespo
 import { Button } from "../../ui/Button";
 import { categoryTranslations, conditionTranslations } from "../../../utils/productDictionaries";
 import { ProductBadgeStatus } from "./ProductBadgeStatus";
+import { DepartmentNameFormat } from "../department/DepartmentNameFormat";
 
 
 export const ProductColumnNames: ColumnDef<ProductShortResponse>[] = [
@@ -14,12 +15,10 @@ export const ProductColumnNames: ColumnDef<ProductShortResponse>[] = [
         header: "Área",
         accessorKey: "department",
         cell: (row) => (
-            <div className="flex flex-col items-center">
-                <span className="text-foreground-muted">{row.department.departmentCode}</span>
-                <span className="text-[10px] text-foreground-muted opacity-80 uppercase tracking-wider">
-                    {row.department.name}
-                </span>
-            </div>
+            <DepartmentNameFormat
+                departmentCode={row.department.departmentCode}
+                name={row.department.name}
+            />
         )
     },
     {

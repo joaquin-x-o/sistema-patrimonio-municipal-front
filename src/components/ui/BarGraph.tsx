@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface Props {
-    label: string;
+    label: ReactNode;
     value: number;
     max: number;
 }
@@ -25,12 +25,12 @@ export function Bar({ label, value, max }: Props) {
     return (
         <div className="flex items-center gap-4 mb-4 mx-5 last:mb-0">
             {/* label */}
-            <div className="w-24 text-s, text-foreground-muted truncate">
+            <div className="w-28 flex flex-col items-center leading-none text-center">
                 {label}
             </div>
 
             {/* barra */}
-            <div className="flex-1 h-6 flex items-center">
+            <div className="flex-1 h-8 flex items-center">
                 <div
                     className="h-full bg-primary-hover transition-all duration-1000 ease-out"
                     style={{ width: `${animatedWidth}%` }}
@@ -38,7 +38,7 @@ export function Bar({ label, value, max }: Props) {
             </div>
 
             {/* valor que representa la barra */}
-            <div className="w-10 text-right text-m text-slate-900">
+            <div className="w-20 text-right text-m text-slate-900">
                 {value}
             </div>
         </div>
