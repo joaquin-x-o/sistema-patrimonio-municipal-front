@@ -35,8 +35,19 @@ export const mockAreasPageOne: DepartmentResponse[] = [
         updatedAt: "2026-01-15"
     },
     {
+        departmentCode: "O2",
+        name: "Secretaría de Obras Públicas",
+        responsibleName: "Ing. Martínez",
+        productCount: 312,
+        percentage: 14.9,
+        isActive: true,
+        registrationDate: "2026-02-10",
+        createdAt: "2026-02-10",
+        updatedAt: "2026-02-12"
+    },
+    {
         departmentCode: "H3",
-        name: "Secreataría de Hacienda",
+        name: "Secretaría de Hacienda",
         responsibleName: "Elena Torres",
         productCount: 150,
         percentage: 7.2,
@@ -44,6 +55,20 @@ export const mockAreasPageOne: DepartmentResponse[] = [
         registrationDate: "2026-01-12",
         createdAt: "2026-01-12",
         updatedAt: "2026-01-12"
+    }
+];
+
+export const mockAreasPageTwo: DepartmentResponse[] = [
+    {
+        departmentCode: "R9",
+        name: "Dirección de Rentas",
+        responsibleName: "Roberto Díaz",
+        productCount: 115,
+        percentage: 5.5,
+        isActive: true,
+        registrationDate: "2026-02-20",
+        createdAt: "2026-02-20",
+        updatedAt: "2026-02-20"
     },
     {
         departmentCode: "S5",
@@ -55,10 +80,7 @@ export const mockAreasPageOne: DepartmentResponse[] = [
         registrationDate: "2026-01-20",
         createdAt: "2026-01-20",
         updatedAt: "2026-01-22"
-    }
-];
-
-export const mockAreasPageTwo: DepartmentResponse[] = [
+    },
     {
         departmentCode: "G1",
         name: "Departamento de Seguridad",
@@ -82,17 +104,6 @@ export const mockAreasPageTwo: DepartmentResponse[] = [
         updatedAt: "2026-02-05"
     },
     {
-        departmentCode: "O2",
-        name: "Secretaría de Obras Públicas",
-        responsibleName: "Ing. Martínez",
-        productCount: 312,
-        percentage: 14.9,
-        isActive: true,
-        registrationDate: "2026-02-10",
-        createdAt: "2026-02-10",
-        updatedAt: "2026-02-12"
-    },
-    {
         departmentCode: "A1",
         name: "Despacho Intendencia",
         responsibleName: "Ana Clara Solís",
@@ -102,20 +113,10 @@ export const mockAreasPageTwo: DepartmentResponse[] = [
         registrationDate: "2026-02-15",
         createdAt: "2026-02-15",
         updatedAt: "2026-02-20"
-    },
-    {
-        departmentCode: "R9",
-        name: "Dirección de Rentas",
-        responsibleName: "CPN Roberto Díaz",
-        productCount: 115,
-        percentage: 5.5,
-        isActive: true,
-        registrationDate: "2026-02-20",
-        createdAt: "2026-02-20",
-        updatedAt: "2026-02-20"
     }
 ];
 
+export const totalDepartments = 10
 
 // todos los departamentos
 export const allMockDepartments = [...mockAreasPageOne, ...mockAreasPageTwo];
