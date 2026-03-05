@@ -5,7 +5,7 @@ import { ProductStatus, ProductCategory, ProductCondition } from "../types/produ
 export const mockProductsPageOne: ProductShortResponse[] = [
     {
         productCode: 109,
-        department: { departmentCode: "D4", name: "Seguridad" },
+        department: { departmentCode: "D4", name: " Departamento de seguridad" },
         name: "Handy Motorola EP450",
         category: ProductCategory.ELECTRONICS,
         physicalCondition: ProductCondition.REGULAR,
@@ -16,7 +16,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 108,
-        department: { departmentCode: "A2", name: "Hacienda" },
+        department: { departmentCode: "A2", name: "Secretaría de Hacienda" },
         name: "Notebook Lenovo ThinkPad E14",
         category: ProductCategory.IT,
         physicalCondition: ProductCondition.NEW,
@@ -27,7 +27,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 107,
-        department: { departmentCode: "C3", name: "Tránsito" },
+        department: { departmentCode: "C3", name: "Dirección de Tránsito" },
         name: "Conos Reflectivos (Lote 50)",
         category: ProductCategory.URBAN_ELEMENTS,
         physicalCondition: ProductCondition.EXCELLENT,
@@ -38,7 +38,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 106,
-        department: { departmentCode: "A1", name: "Despacho" },
+        department: { departmentCode: "A1", name: "Despacho Intendencia" },
         name: "Generador Eléctrico Honda",
         category: ProductCategory.MACHINERY,
         physicalCondition: ProductCondition.BROKEN,
@@ -49,7 +49,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 105,
-        department: { departmentCode: "B2", name: "Cultura" },
+        department: { departmentCode: "B2", name: "Dirección de Cultura" },
         name: "Bandera de Argentina de Ceremonia",
         category: ProductCategory.TEXTILES,
         physicalCondition: ProductCondition.GOOD,
@@ -64,7 +64,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
 export const mockProductsPageTwo: ProductShortResponse[] = [
     {
         productCode: 114,
-        department: { departmentCode: "B2", name: "Cultura" },
+        department: { departmentCode: "B2", name: "Dirección de Cultura" },
         name: "Cuadro Óleo 'Paisaje Salteño'",
         category: ProductCategory.ARTWORK,
         physicalCondition: ProductCondition.EXCELLENT,
@@ -75,7 +75,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 113,
-        department: { departmentCode: "E1", name: "Deportes" },
+        department: { departmentCode: "E1", name: "Complejo Municipal" },
         name: "Arco de Fútbol 11 (Par)",
         category: ProductCategory.SPORTS,
         physicalCondition: ProductCondition.BROKEN,
@@ -86,7 +86,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 112,
-        department: { departmentCode: "F2", name: "Obras Públicas" },
+        department: { departmentCode: "F2", name: "Secretaría de Obras Públicas" },
         name: "Camioneta Toyota Hilux",
         category: ProductCategory.VEHICLES,
         physicalCondition: ProductCondition.NEW,
@@ -97,7 +97,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 111,
-        department: { departmentCode: "A1", name: "Despacho" },
+        department: { departmentCode: "A1", name: "Despacho Intendencia" },
         name: "Escritorio de Madera Maciza",
         category: ProductCategory.FURNITURE,
         physicalCondition: ProductCondition.REGULAR,
@@ -108,7 +108,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 110,
-        department: { departmentCode: "A2", name: "Hacienda" },
+        department: { departmentCode: "A2", name: "Secretaría de Hacienda" },
         name: "Impresora HP LaserJet",
         category: ProductCategory.OFFICE_EQUIPMENT,
         physicalCondition: ProductCondition.GOOD,
