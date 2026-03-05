@@ -20,7 +20,7 @@ export default function Sidebar({ children }: Props) {
 
   return (
     <>
-      {/* comportamiento de apertura/cierre del sidebar; fondo desenfocado y click fuera de este para cerrarlo) */}
+      {/* comportamiento de apertura/cierre del sidebar; fondo desenfocado y fuera de este para cerrarlo) */}
 
       {isExpanded && (
         <div
