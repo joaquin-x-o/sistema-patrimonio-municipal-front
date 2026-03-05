@@ -20,10 +20,11 @@ export default function Sidebar({ children }: Props) {
 
   return (
     <>
-      {/* OVERLAY: Fondo oscuro (Solo móvil) */}
+      {/* comportamiento de apertura/cierre del sidebar; fondo desenfocado y click fuera de este para cerrarlo) */}
+
       {isExpanded && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity"
+          className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 transition-opacity duration-300 cursor-pointer"
           onClick={() => setIsExpanded(false)}
         />
       )}
