@@ -12,7 +12,14 @@ export const ProductCell: ColumnDef<ProductShortResponse>[] = [
     {
         header: "Área",
         accessorKey: "department",
-        cell: (row) => row.department.departmentCode
+        cell: (row) => (
+            <div className="flex flex-col items-center">
+                <span className="text-foreground-muted">{row.department.departmentCode}</span>
+                <span className="text-[10px] text-neutral uppercase tracking-wider">
+                    {row.department.name}
+                </span>
+            </div>
+        )
     },
     {
         header: "Nombre",
