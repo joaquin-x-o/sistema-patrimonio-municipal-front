@@ -2,7 +2,7 @@ import { Table } from "../components/ui/Table";
 import { Bar } from "../components/ui/BarGraph";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
-import { areaColumnNames } from "../components/features/department/AreaColumnNames";
+import { DepartmentColumnNames } from "../components/features/department/DepartmentColumnNames";
 import { useSidebar } from "../components/layout/sidebar/SidebarProvider";
 import { DepartmentNameFormat } from "../components/features/department/DepartmentNameFormat";
 
@@ -80,7 +80,7 @@ export default function DepartmentManagement() {
             {/* SECCIÓN INFERIOR: TABLA DE ÁREAS */}
             <Card title="Áreas" total={totalDepartments}>
 
-                <Table columns={areaColumnNames} data={currentData} />
+                <Table columns={DepartmentColumnNames} data={currentData} />
 
                 <Pagination
                     currentPage={currentPage}
