@@ -19,6 +19,9 @@ function App() {
             {/*TOPBAR*/}
             <Topbar />
 
+            <main className="flex-1 overflow-y-auto p-8">
+              <Dashboard />
+            </main>
 
           </div>
         </SidebarProvider>
