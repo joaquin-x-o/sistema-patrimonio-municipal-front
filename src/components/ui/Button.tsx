@@ -9,11 +9,13 @@ interface Props {
     className?: string;
     icon?: ReactNode;
     to?: string
+    onClick?: () => void;
+    disabled?: boolean;
 }
 
-export function Button({ children, variant = "primary", className = "", icon, to }: Props) {
+export function Button({ children, variant = "primary", className = "", icon, to, onClick, disabled }: Props) {
 
-    const baseStyles = "flex items-center justify-center gap-2 px-4 py-2 rounded-md text-lg font-medium transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none shadow-sm";
+    const baseStyles = "flex items-center justify-center gap-2 px-4 py-2 rounded-md text-lg font-medium transition-all active:scale-95 disabled:opacity-0 disabled:pointer-events-none shadow-sm";
 
     const variantStyles: Record<ButtonVariant, string> = {
         primary: "bg-primary-hover text-foreground hover:opacity-90",
@@ -35,7 +37,7 @@ export function Button({ children, variant = "primary", className = "", icon, to
     }
 
     return (
-        <button className={combinedClasses}>
+        <button className={combinedClasses} onClick={onClick} disabled={disabled}>
             {icon && <span>{icon}</span>}
             {children}
         </button>
