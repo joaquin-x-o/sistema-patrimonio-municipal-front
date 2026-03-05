@@ -16,7 +16,7 @@ export const ProductColumnNames: ColumnDef<ProductShortResponse>[] = [
         cell: (row) => (
             <div className="flex flex-col items-center">
                 <span className="text-foreground-muted">{row.department.departmentCode}</span>
-                <span className="text-[10px] text-neutral  uppercase tracking-wider">
+                <span className="text-[10px] text-foreground-muted opacity-80 uppercase tracking-wider">
                     {row.department.name}
                 </span>
             </div>
