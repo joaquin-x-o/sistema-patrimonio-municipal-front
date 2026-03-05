@@ -1,11 +1,12 @@
 import type { ProductShortResponse } from "../interfaces/productShortResponse";
 import { ProductStatus, ProductCategory, ProductCondition } from "../types/product.type";
+import { getDept } from "./departmentsMock";
 
 
 export const mockProductsPageOne: ProductShortResponse[] = [
     {
         productCode: 109,
-        department: { departmentCode: "D4", name: " Departamento de seguridad" },
+        department: getDept("G1"),
         name: "Handy Motorola EP450",
         category: ProductCategory.ELECTRONICS,
         physicalCondition: ProductCondition.REGULAR,
@@ -16,7 +17,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 108,
-        department: { departmentCode: "A2", name: "Secretaría de Hacienda" },
+        department: getDept("H3"),
         name: "Notebook Lenovo ThinkPad E14",
         category: ProductCategory.IT,
         physicalCondition: ProductCondition.NEW,
@@ -27,7 +28,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 107,
-        department: { departmentCode: "C3", name: "Dirección de Tránsito" },
+        department: getDept("T1"),
         name: "Conos Reflectivos (Lote 50)",
         category: ProductCategory.URBAN_ELEMENTS,
         physicalCondition: ProductCondition.EXCELLENT,
@@ -38,7 +39,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 106,
-        department: { departmentCode: "A1", name: "Despacho Intendencia" },
+        department: getDept("A1"),
         name: "Generador Eléctrico Honda",
         category: ProductCategory.MACHINERY,
         physicalCondition: ProductCondition.BROKEN,
@@ -49,7 +50,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
     },
     {
         productCode: 105,
-        department: { departmentCode: "B2", name: "Dirección de Cultura" },
+        department: getDept("C4"),
         name: "Bandera de Argentina de Ceremonia",
         category: ProductCategory.TEXTILES,
         physicalCondition: ProductCondition.GOOD,
@@ -64,7 +65,7 @@ export const mockProductsPageOne: ProductShortResponse[] = [
 export const mockProductsPageTwo: ProductShortResponse[] = [
     {
         productCode: 114,
-        department: { departmentCode: "B2", name: "Dirección de Cultura" },
+        department: getDept("C4"),
         name: "Cuadro Óleo 'Paisaje Salteño'",
         category: ProductCategory.ARTWORK,
         physicalCondition: ProductCondition.EXCELLENT,
@@ -75,7 +76,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 113,
-        department: { departmentCode: "E1", name: "Complejo Municipal" },
+        department: getDept("S5"),
         name: "Arco de Fútbol 11 (Par)",
         category: ProductCategory.SPORTS,
         physicalCondition: ProductCondition.BROKEN,
@@ -86,7 +87,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 112,
-        department: { departmentCode: "F2", name: "Secretaría de Obras Públicas" },
+        department: getDept("O2"),
         name: "Camioneta Toyota Hilux",
         category: ProductCategory.VEHICLES,
         physicalCondition: ProductCondition.NEW,
@@ -97,7 +98,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 111,
-        department: { departmentCode: "A1", name: "Despacho Intendencia" },
+        department: getDept("A1"),
         name: "Escritorio de Madera Maciza",
         category: ProductCategory.FURNITURE,
         physicalCondition: ProductCondition.REGULAR,
@@ -108,7 +109,7 @@ export const mockProductsPageTwo: ProductShortResponse[] = [
     },
     {
         productCode: 110,
-        department: { departmentCode: "A2", name: "Secretaría de Hacienda" },
+        department: getDept("H3"),
         name: "Impresora HP LaserJet",
         category: ProductCategory.OFFICE_EQUIPMENT,
         physicalCondition: ProductCondition.GOOD,
