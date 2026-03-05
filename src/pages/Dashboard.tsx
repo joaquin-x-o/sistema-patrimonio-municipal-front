@@ -5,7 +5,7 @@ import { Bar } from "../components/ui/BarGraph";
 import { useSidebar } from "../components/layout/sidebar/SidebarProvider";
 import { QuickActionButton } from "../components/ui/QuickActionButton";
 import { Table } from "../components/ui/Table";
-import { ProductCell } from "../components/features/products/ProductCell";
+import { ProductColumnNames } from "../components/features/products/ProductColumnNames";
 import { mockProductsPageOne } from "../mock/productsMock";
 
 
@@ -76,7 +76,7 @@ export default function Dashboard() {
             {/* TABLA DE PRODUCTOS */}
             <div>
                 <Card title="ÚLTIMOS PRODUCTOS" footerLinkTo="/producto/gestion-productos">
-                    <Table columns={ProductCell} data={mockProductsPageOne}></Table>
+                    <Table columns={ProductColumnNames} data={mockProductsPageOne}></Table>
                 </Card>
             </div>
 
