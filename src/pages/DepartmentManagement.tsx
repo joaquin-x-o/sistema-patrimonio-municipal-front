@@ -38,7 +38,6 @@ export default function DepartmentManagement() {
                 <div className="lg:col-span-2">
                     <Card title="Áreas con más bienes registrados">
                         <div className="flex flex-col gap-4 py-4">
-                            {/* Aquí usás tu componente BarGraph */}
                             <Bar label={
                                 <DepartmentNameFormat
                                     departmentCode={getDept("B2").departmentCode}
