@@ -8,7 +8,7 @@ interface Props<T> {
 export function Table<T>({ columns, data }: Props<T>) {
     return (
         <div className="w-full overflow-x-auto">
-            <table className="w-full text-center border-collapse min-w-[600px]">
+            <table className="w-full text-center border-collapse min-w-max md:min-w-full table-auto">
                 <thead>
                     <tr className="bg-muted text-foreground-muted font-semibold text-sm">
                         {columns.map((col, index) => (
@@ -20,12 +20,9 @@ export function Table<T>({ columns, data }: Props<T>) {
                 </thead>
                 <tbody className="text-foreground-muted text-sm">
                     {data.map((row, rowIndex) => (
-                        <tr
-                            key={rowIndex}
-                            className="border-b border-muted hover:bg-background transition-colors"
-                        >
+                        <tr key={rowIndex} className="border-b border-muted hover:bg-background transition-colors">
                             {columns.map((col, colIndex) => (
-                                <td key={colIndex} className="py-3 px-4">
+                                <td key={colIndex} className="py-4 px-4">
                                     {col.cell ? col.cell(row) : String(row[col.accessorKey])}
                                 </td>
                             ))}
