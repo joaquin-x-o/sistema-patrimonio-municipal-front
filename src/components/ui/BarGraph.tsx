@@ -11,7 +11,6 @@ export function Bar({ label, value, max }: Props) {
     const percentage = Math.round((value / max) * 100);
 
     // animacion barra
-
     const [animatedWidth, setAnimatedWidth] = useState(0);
 
     useEffect(() => {
@@ -26,7 +25,13 @@ export function Bar({ label, value, max }: Props) {
         <div className="flex items-center gap-4 mb-4 mx-5 last:mb-0">
             {/* label */}
             <div className="w-28 flex flex-col items-center leading-none text-center">
-                {label}
+                {typeof label === 'string' ? (
+                    <span className="text-sm text-foreground-muted text-left">
+                        {label}
+                    </span>
+                ) : (
+                    label
+                )}
             </div>
 
             {/* barra */}
