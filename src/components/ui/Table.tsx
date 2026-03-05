@@ -10,7 +10,7 @@ export function Table<T>({ columns, data }: Props<T>) {
         <div className="w-full overflow-x-auto">
             <table className="w-full text-center border-collapse min-w-[600px]">
                 <thead>
-                    <tr className="bg-[#e5e5e5] text-gray-800 font-semibold text-sm">
+                    <tr className="bg-muted text-foreground-muted font-semibold text-sm">
                         {columns.map((col, index) => (
                             <th key={index} className="py-3 px-4 first:rounded-tl-sm last:rounded-tr-sm">
                                 {col.header}
@@ -18,11 +18,11 @@ export function Table<T>({ columns, data }: Props<T>) {
                         ))}
                     </tr>
                 </thead>
-                <tbody className="text-gray-700 text-sm">
+                <tbody className="text-foreground-muted text-sm">
                     {data.map((row, rowIndex) => (
                         <tr
                             key={rowIndex}
-                            className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
+                            className="border-b border-muted hover:bg-background transition-colors"
                         >
                             {columns.map((col, colIndex) => (
                                 <td key={colIndex} className="py-3 px-4">
