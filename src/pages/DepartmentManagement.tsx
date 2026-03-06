@@ -6,10 +6,11 @@ import { DepartmentColumnNames } from "../components/features/department/Departm
 import { useSidebar } from "../components/layout/sidebar/SidebarProvider";
 import { DepartmentNameFormat } from "../components/features/department/DepartmentNameFormat";
 
-import { getDept, mockAreasPageOne, mockAreasPageTwo, totalDepartments } from "../mock/departmentsMock";
+import { getDept, mockDepartmentPageOne, mockDepartmentPageTwo, totalDepartments } from "../mock/departmentsMock";
 import Pagination from "../components/ui/Pagination";
 import { useState } from "react";
 import { ExcelButton } from "../components/ui/ExcelButton";
+import handleExportExcel from "../utils/handleExportExcel";
 
 export default function DepartmentManagement() {
     const { toggleMenu } = useSidebar();
@@ -17,12 +18,7 @@ export default function DepartmentManagement() {
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const currentData = currentPage === 1 ? mockAreasPageOne : mockAreasPageTwo;
-
-    // funcion provisoria
-    const handleExportExcel = () => {
-        alert("Se descargó el Excel.");
-    };
+    const currentData = currentPage === 1 ? mockDepartmentPageOne : mockDepartmentPageTwo;
 
     return (
         <div className="flex flex-col gap-8">
