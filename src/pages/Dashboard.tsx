@@ -6,7 +6,7 @@ import { Table } from "../components/ui/Table";
 import { Button } from "../components/ui/Button";
 import { ProductColumnNames } from "../components/features/products/ProductColumnNames";
 
-import { mockProductsPageOne } from "../mock/productsMock";
+import { mockProductsPageOne, totalProducts } from "../mock/products/productListMock";
 import { getDept } from "../mock/departmentsMock";
 
 import { Package, AlertTriangle, FileDown } from "lucide-react";
@@ -22,9 +22,10 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 <SummaryCard
                     title="Total Productos"
-                    value="26.304"
+                    value={totalProducts}
                     icon={<Package size={70} strokeWidth={1.5} />}
                     bgColor="bg-primary-hover"
+                    to="/producto/gestion-productos"
                 />
 
                 <SummaryCard
@@ -32,6 +33,7 @@ export default function Dashboard() {
                     value="20"
                     icon={<AlertTriangle size={70} strokeWidth={1.5} />}
                     bgColor="bg-warning"
+                    to="producto/pendientes-revision"
                 />
 
                 <SummaryCard
@@ -39,6 +41,7 @@ export default function Dashboard() {
                     value="0"
                     icon={<FileDown size={70} strokeWidth={1.5} />}
                     bgColor="bg-danger"
+                    to="producto/reporte-bajas"
                 />
             </div>
 
