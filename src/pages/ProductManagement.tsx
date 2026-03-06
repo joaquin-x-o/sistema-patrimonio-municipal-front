@@ -1,15 +1,17 @@
+import { useState } from "react";
+
 import { Table } from "../components/ui/Table";
 import { Bar } from "../components/ui/BarGraph";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
-import { DepartmentColumnNames } from "../components/features/department/DepartmentColumnNames";
 import { useSidebar } from "../components/layout/sidebar/SidebarProvider";
-import { DepartmentNameFormat } from "../components/features/department/DepartmentNameFormat";
-
-import { getDept, mockAreasPageOne, mockAreasPageTwo, totalDepartments } from "../mock/departmentsMock";
-import Pagination from "../components/ui/Pagination";
-import { useState } from "react";
 import { ExcelButton } from "../components/ui/ExcelButton";
+import { ProductColumnNames } from "../components/features/products/ProductColumnNames";
+import Pagination from "../components/ui/Pagination";
+
+import { mockProductsPageOne, mockProductsPageTwo, totalProducts } from "../mock/products/productListMock";
+import { conditionTranslations } from "../utils/productDictionaries";
+
 
 export default function ProductManagement() {
     const { toggleMenu } = useSidebar();
@@ -17,7 +19,7 @@ export default function ProductManagement() {
 
     const [currentPage, setCurrentPage] = useState(1);
 
-    const currentData = currentPage === 1 ? mockAreasPageOne : mockAreasPageTwo;
+    const currentData = currentPage === 1 ? mockProductsPageOne : mockProductsPageTwo;
 
     // funcion provisoria
     const handleExportExcel = () => {
@@ -31,55 +33,62 @@ export default function ProductManagement() {
                 Gestión de Productos
             </h1>
 
-            {/* GRÁFICO Y ACCIONES RAPIDAS*/}
+            {/* GRAFICO Y ACCIONES RAPIDAS*/}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                 {/*  numero de productos segun su condicion */}
                 <div className="lg:col-span-2">
-                    <Card title="Producto">
-                        <div className="flex flex-col gap-4 py-4">
-                            <Bar label={
-                                <DepartmentNameFormat
-                                    departmentCode={getDept("B2").departmentCode}
-                                    name={getDept("B2").name}
-                                />
-                            } value={842} max={1000} />
-                            <Bar label={
-                                <DepartmentNameFormat
-                                    departmentCode={getDept("C4").departmentCode}
-                                    name={getDept("C4").name}
-                                />
-                            } value={654} max={1000} />
-                            <Bar label={
-                                <DepartmentNameFormat
-                                    departmentCode={getDept("T1").departmentCode}
-                                    name={getDept("T1").name}
-                                />
-                            } value={480} max={1000} />
+                    <Card title="Productos según su condición">
+                        <div className="flex flex-col gap-3 py-2">
+                            <Bar
+                                label={conditionTranslations["NEW"]}
+                                value={20}
+                                max={20}
+                            />
+                            <Bar
+                                label={conditionTranslations["EXCELLENT"]}
+                                value={16}
+                                max={20}
+                            />
+                            <Bar
+                                label={conditionTranslations["GOOD"]}
+                                value={12}
+                                max={20}
+                            />
+                            <Bar
+                                label={conditionTranslations["REGULAR"]}
+                                value={8}
+                                max={20}
+                            />
+                            <Bar
+                                label={conditionTranslations["BAD"]}
+                                value={5}
+                                max={20}
+                            />
                         </div>
                     </Card>
                 </div>
 
                 {/* acciones rapidas*/}
-                <Card title="ACCIONES RÁPIDAS" onFooterClick={() => toggleMenu("productos")}>
+                <Card title="ACCIONES RÁPIDAS" onFooterClick={() => toggleMenu("areas")} >
                     <div className="flex flex-col gap-3 py-2">
-                        <Button variant="primary" className="w-full py-3">
-                            Crear nueva área
+                        <Button variant="primary" to="/producto/crear" className="w-full py-3">
+                            Crear producto
                         </Button>
-                        <Button variant="primary" className="w-full py-3">
-                            Editar área
+                        <Button variant="primary" to="/producto/editar-estado" className="w-full py-3">
+                            Modificar estado de producto
                         </Button>
-                        <Button variant="danger" className="w-full py-3">
-                            Eliminar área
+                        <Button variant="danger" to="/producto/dar-de-baja" className="w-full py-3">
+                            Dar de baja
                         </Button>
                     </div>
                 </Card>
             </div>
 
-            {/* SECCIÓN INFERIOR: TABLA DE ÁREAS */}
-            <Card title="Áreas" total={totalDepartments}>
+            {/* SECCION INFERIOR: TABLA DE PRODUCTOS */}
+            <Card title="Productos" total={totalProducts}>
 
-                <Table columns={DepartmentColumnNames} data={currentData} />
+                <Table columns={ProductColumnNames} data={currentData} />
 
                 <Pagination
                     currentPage={currentPage}
