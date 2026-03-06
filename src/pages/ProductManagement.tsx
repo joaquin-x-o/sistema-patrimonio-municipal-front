@@ -70,7 +70,7 @@ export default function ProductManagement() {
                 </div>
 
                 {/* acciones rapidas*/}
-                <Card title="ACCIONES RÁPIDAS" onFooterClick={() => toggleMenu("areas")} >
+                <Card title="ACCIONES RÁPIDAS" onFooterClick={() => toggleMenu("productos")} >
                     <div className="flex flex-col gap-3 py-2">
                         <Button variant="primary" to="/producto/crear" className="w-full py-3">
                             Crear producto
