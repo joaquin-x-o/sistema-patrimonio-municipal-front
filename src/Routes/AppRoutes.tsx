@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import DepartmentManagement from "../pages/DepartmentManagement";
+import ProductManagement from "../pages/ProductManagement";
+import DepartmentDetails from "../pages/DepartmentDetails";
+import ProductDetails from "../pages/ProductDetails";
 
 export const AppRoutes = () => {
     return (
@@ -11,7 +14,16 @@ export const AppRoutes = () => {
             {/* GESTION DE AREAS */}
             <Route path="/area/gestion-areas" element={<DepartmentManagement />} />
 
-            {/* REDIRECCION A INICIO*/}
+            {/* GESTION DE PRODUCTOS */}
+            <Route path="/producto/gestion-productos" element={<ProductManagement />} />
+
+            {/* DETALLES DE UN AREA */}
+            <Route path="/area/:departmentCode" element={<DepartmentDetails />} />
+
+            {/* DETALLES DE UN PRODUCTO*/}
+            <Route path="/producto/:productCode" element={<ProductDetails />} />
+
+            {/* REDIRECCION A INICIO EN CASO DE RUTA DESCONOCIDA*/}
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
