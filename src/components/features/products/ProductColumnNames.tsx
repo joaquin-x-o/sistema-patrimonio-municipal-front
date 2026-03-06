@@ -1,5 +1,5 @@
 import type { ColumnDef } from "../../../interfaces/columnDef";
-import type { ProductShortResponse } from "../../../interfaces/productShortResponse";
+import type { ProductShortResponse } from "../../../interfaces/productResponse";
 import { Button } from "../../ui/Button";
 import { categoryTranslations, conditionTranslations } from "../../../utils/productDictionaries";
 import { ProductBadgeStatus } from "./ProductBadgeStatus";
