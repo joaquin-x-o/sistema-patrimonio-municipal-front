@@ -1,6 +1,6 @@
 import type { DepartmentResponse } from "../interfaces/departmentResponse";
 
-export const mockAreasPageOne: DepartmentResponse[] = [
+export const departmentMock: DepartmentResponse[] = [
     {
         departmentCode: "B2",
         name: "Direccion de Patrimonio",
@@ -55,10 +55,7 @@ export const mockAreasPageOne: DepartmentResponse[] = [
         registrationDate: "2026-01-12",
         createdAt: "2026-01-12",
         updatedAt: "2026-01-12"
-    }
-];
-
-export const mockAreasPageTwo: DepartmentResponse[] = [
+    },
     {
         departmentCode: "R9",
         name: "Dirección de Rentas",
@@ -116,10 +113,15 @@ export const mockAreasPageTwo: DepartmentResponse[] = [
     }
 ];
 
-export const totalDepartments = 10
+// total productos
+export const totalDepartments = departmentMock.length;
 
-// todos los departamentos
-export const allMockDepartments = [...mockAreasPageOne, ...mockAreasPageTwo];
+// separacion de datos en paginas
+export const mockDepartmentPageOne = departmentMock.slice(0, 5)
+export const mockDepartmentPageTwo = departmentMock.slice(5, 10)
+
+// obtener todos los productos
+export const allMockDepartments = [...mockDepartmentPageOne, ...mockDepartmentPageTwo]
 
 // funcion para obtener un departamento
 export const getDept = (code: string) => {
