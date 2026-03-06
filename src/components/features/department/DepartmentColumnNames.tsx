@@ -30,7 +30,7 @@ export const DepartmentColumnNames: ColumnDef<DepartmentResponse>[] = [
         cell: (row) => (
             <div className="flex justify-end">
                 <Button
-                    to={`/gestion-areas/${row.departmentCode}`}
+                    to={`/area/${row.departmentCode}`}
                     variant="primary"
                     className="px-6 py-1 text-xs"
                 >
