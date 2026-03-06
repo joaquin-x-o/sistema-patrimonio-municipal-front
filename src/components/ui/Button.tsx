@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-type ButtonVariant = "primary" | "danger" | "warning" | "success" | "neutral";
+type ButtonVariant = "primary" | "danger" | "warning" | "success" | "neutral" | "invisible";
 
 interface Props {
     children?: ReactNode;
@@ -23,6 +23,7 @@ export function Button({ children, variant = "primary", className = "", icon, to
         warning: "bg-warning text-foreground hover:opacity-90",
         success: "bg-success text-foreground hover:opacity-90",
         neutral: "bg-neutral text-foreground hover:opacity-90",
+        invisible: "bg-transparent text-foreground-muted hover:text-primary"
     };
 
     const combinedClasses = `${baseStyles} ${variantStyles[variant]} ${className}`;
