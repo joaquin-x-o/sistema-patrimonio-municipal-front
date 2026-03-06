@@ -2,18 +2,20 @@ import type { ReactNode } from "react";
 import { FooterLink } from "./FooterLink";
 
 interface Props {
-    title: string;
+    title?: string;
     total?: number;
     children: ReactNode;
+
+    className?: string;
 
     footerLinkTo?: string;
     footerLinkLabel?: string;
     onFooterClick?: () => void;
 }
 
-export function Card({ title, total, children, footerLinkTo, footerLinkLabel = "Ver todos", onFooterClick }: Props) {
+export function Card({ title, total, children, className, footerLinkTo, footerLinkLabel = "Ver todos", onFooterClick }: Props) {
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-full overflow-x-hidden">
+        <div className={`bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col h-full overflow-x-hidden ${className}`}>
             {/* titulo */}
             <div className="p-4 border-b border-slate-200">
                 <h2 className="text-foreground-muted font-bold uppercase text-m tracking-wide">
