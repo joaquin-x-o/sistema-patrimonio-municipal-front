@@ -95,6 +95,8 @@ export default function ProductDetails() {
     const productCategory = productDetails?.category ?? ProductCategory.OTHER;
     const productCondition = productDetails?.physicalCondition ?? ProductCondition.NEW;
 
+    const needsCheckReview = productDetails?.needsCheckReview;
+
     // si el estado es En revision o En Desuso, se obtendrá su motivo
     let productReason = "";
 
@@ -219,15 +221,16 @@ export default function ProductDetails() {
             </Card>
 
             {/* ULTIMA CONSTATACION */}
-            <Card>
-                <div className="flex justify-between items-center text-foreground-muted">
+            <Card className={needsCheckReview ? "border-2 border-warning" : ""} >
+                <div className={`flex justify-between items-center text-foreground-muted`}>
                     <p>
                         <span className="font-bold text-foreground-muted">Última constatación: </span>
                         {productDetails?.lastCheckDate ?? 'Nunca'}
                     </p>
-                    <Button className="cursor-pointer" variant="warning">
+                    {needsCheckReview && <Button className="cursor-pointer" variant="warning" to={`/product/${productCode}/check-review`}>
                         <AlertTriangle size={24} strokeWidth={1.5} />
-                    </Button>
+                    </Button>}
+
                 </div>
             </Card>
 
