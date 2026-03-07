@@ -32,7 +32,7 @@ export const productMock: ProductResponse[] = [
         isRetired: false,
 
         needsCheckReview: false,
-        lastCheckDate: null,
+        lastCheckDate: "2026-01-15",
         pendingReviewReason: "Extraviado en operativo",
 
         createdAt: "2025-05-10T10:00:00",
@@ -107,7 +107,7 @@ export const productMock: ProductResponse[] = [
         retirementDate: null,
         isRetired: false,
 
-        needsCheckReview: false,
+        needsCheckReview: true,
         lastCheckDate: null,
         pendingReviewReason: "Reemplazar sus cintas reflectantes.",
 
@@ -183,7 +183,7 @@ export const productMock: ProductResponse[] = [
         retirementDate: null,
         isRetired: false,
 
-        needsCheckReview: false,
+        needsCheckReview: true,
         lastCheckDate: null,
         pendingReviewReason: null,
 
@@ -261,7 +261,7 @@ export const productMock: ProductResponse[] = [
         retirementDate: null,
         isRetired: false,
 
-        needsCheckReview: false,
+        needsCheckReview: true,
         lastCheckDate: null,
         pendingReviewReason: null,
 
