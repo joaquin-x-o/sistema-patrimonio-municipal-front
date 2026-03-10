@@ -1,13 +1,42 @@
-import { Menu, UserRound } from "lucide-react";
-import Searchbar from "../../ui/Searchbar";
+import { Menu, Search, UserRound } from "lucide-react";
 import { useSidebar } from "../sidebar/SidebarProvider";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Input } from "../../ui/Input";
+import { searchProductsLight, type ProductLightResponse } from "../../../interfaces/productResponse";
+import { mockProductsLight } from "../../../mock/products/productLightMock";
+import { SearchResultsList } from "../../ui/SearchResultsList";
+import { ProductSearchListFormat } from "../../features/products/ProductSearchListFormat";
 
 export default function Topbar() {
 
+    const navigate = useNavigate();
+
     const { setIsExpanded } = useSidebar();
 
+    const [search, setSearch] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
+
+    const searchResults = searchProductsLight(search, mockProductsLight);
+
+    const handleSearchSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const code = search.trim();
+        if (code) {
+            navigate(`/producto/${code}`);
+            setSearch("");
+            setIsFocused(false);
+        }
+    };
+
+    const handleSelectProduct = (productCode: number) => {
+        navigate(`/producto/${productCode}`);
+        setSearch("");
+        setIsFocused(false);
+    };
+
     return (
-        <header className="h-[88px] bg-white border-b border-muted flex items-center justify-between px-4 md:px-8 gap-4 shrink-0">
+        <header className="h-22 bg-white border-b border-muted flex items-center justify-between px-4 md:px-8 gap-4 shrink-0">
 
             <div className="w-10 shrink-0 flex items-center">
                 {/* MOVIL */}
@@ -24,7 +53,33 @@ export default function Topbar() {
 
             {/* barra de busqueda */}
             <div className="flex-1 flex justify-center">
-                <Searchbar placeholder="Buscar producto..." className="w-full max-w-[220px] sm:max-w-md md:max-w-2xl" />
+                <div className="relative w-full max-w-56 sm:max-w-md md:max-w-2xl">
+                    <form onSubmit={handleSearchSubmit} className="w-full max-w-56 sm:max-w-md md:max-w-2xl">
+                        <Input
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder="Buscar producto..."
+                            startIcon={<Search size={18} />} // Le pasamos la lupa directo acá
+                            className="rounded-full!"
+                            onFocus={() => setIsFocused(true)}
+                            onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+                        />
+                    </form>
+
+                    {/* ventana flotante que encuentra los resultados del usuario*/}
+                    {isFocused && search.trim().length > 0 && (
+                        <SearchResultsList
+                            items={searchResults}
+                            getKey={(p) => p.productCode}
+                            onSelect={(p) => handleSelectProduct(p.productCode)}
+                            emptyMessage={`No se encontraron productos para "${search}"`}
+                            className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-xl shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                        >
+                            {(product: ProductLightResponse) => <ProductSearchListFormat product={product} />}
+                        </SearchResultsList>
+                    )}
+                </div>
+
             </div>
 
             {/* icono de usuario */}
