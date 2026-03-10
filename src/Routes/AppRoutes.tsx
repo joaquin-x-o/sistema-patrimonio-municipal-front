@@ -4,7 +4,7 @@ import DepartmentManagement from "../pages/DepartmentManagement";
 import ProductManagement from "../pages/ProductManagement";
 import DepartmentDetails from "../pages/DepartmentDetails";
 import ProductDetails from "../pages/ProductDetails";
-import ReportManagement from "../pages/ReportManager";
+import ReportManagement from "../pages/ReportManagement";
 
 export const AppRoutes = () => {
     return (

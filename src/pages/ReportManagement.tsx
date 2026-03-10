@@ -156,7 +156,7 @@ export default function ReportManagement() {
                     </div>
                 </Card>
 
-                {/* PRODUCTOS DADOS DE BAJA */}
+                {/* Productos dados de baja */}
                 <Card title="Reporte de productos dados de baja">
                     <div className="flex flex-row gap-5">
                         <Button className="text-sm" to="/reportes/productos-baja"> Ver reporte </Button>
