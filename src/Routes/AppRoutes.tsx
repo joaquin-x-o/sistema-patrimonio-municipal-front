@@ -4,6 +4,7 @@ import DepartmentManagement from "../pages/DepartmentManagement";
 import ProductManagement from "../pages/ProductManagement";
 import DepartmentDetails from "../pages/DepartmentDetails";
 import ProductDetails from "../pages/ProductDetails";
+import ReportManagement from "../pages/ReportManager";
 
 export const AppRoutes = () => {
     return (
@@ -16,6 +17,9 @@ export const AppRoutes = () => {
 
             {/* GESTION DE PRODUCTOS */}
             <Route path="/producto/gestion-productos" element={<ProductManagement />} />
+
+            {/* GESTION DE REPORTES */}
+            <Route path="reportes/gestion-reportes" element={<ReportManagement />} />
 
             {/* DETALLES DE UN AREA */}
             <Route path="/area/:departmentCode" element={<DepartmentDetails />} />
