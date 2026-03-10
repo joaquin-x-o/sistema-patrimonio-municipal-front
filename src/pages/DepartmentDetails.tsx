@@ -46,7 +46,7 @@ export default function DepartmentDetails() {
             </h1>
 
             {/* INFORMACION DE AREA*/}
-            <Card title={`${departmentDetails?.name} (${departmentDetails?.departmentCode})`}>
+            <Card title={`${departmentDetails?.name} (${departmentDetails?.departmentCode})`} centerTitle>
                 <div className="relative">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-foreground-muted">
                         <p className={gridControl}>

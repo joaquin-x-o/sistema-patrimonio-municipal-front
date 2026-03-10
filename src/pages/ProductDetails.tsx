@@ -124,7 +124,7 @@ export default function ProductDetails() {
             </h1>
 
             {/* INFORMACION DE PRODUCTO */}
-            <Card title={`${productDetails?.name} (${productDetails?.productCode})`}>
+            <Card title={`${productDetails?.name} (${productDetails?.productCode})`} centerTitle>
                 <div className="relative">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-foreground-muted">
                         <p className={gridControl}>
