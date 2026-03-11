@@ -30,14 +30,14 @@ export default function ReportManagement() {
         e.preventDefault();
 
         const code = maintenanceCode.trim();
-        if (code) navigate(`/producto/${code}`);
+        if (code) navigate(`/gestion-reportes/mantenimiento/${code}`);
     };
 
     const handleTransferInput = (e: React.FormEvent) => {
         e.preventDefault();
 
         const code = transferCode.trim();
-        if (code) navigate(`/producto/${code}`);
+        if (code) navigate(`/gestion-reportes/traslados/${code}`);
     };
 
     return (
@@ -103,7 +103,7 @@ export default function ReportManagement() {
                 </Card>
 
                 {/* Traslado */}
-                <Card title="Reporte de traslados">
+                <Card title="Reporte de traslado">
                     <div className="flex flex-col gap-4">
                         <p className="text-lg text-foreground-muted">
                             Escriba el código del producto al que quiere ver su reporte:
@@ -159,7 +159,7 @@ export default function ReportManagement() {
                 {/* Productos dados de baja */}
                 <Card title="Reporte de productos dados de baja">
                     <div className="flex flex-row gap-5">
-                        <Button className="text-sm" to="/reportes/productos-baja"> Ver reporte </Button>
+                        <Button className="text-sm" to="/gestion-reportes/bajas"> Ver reporte </Button>
                     </div>
                 </Card>
             </div >
