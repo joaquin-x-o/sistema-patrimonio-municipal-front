@@ -5,6 +5,9 @@ import ProductManagement from "../pages/ProductManagement";
 import DepartmentDetails from "../pages/DepartmentDetails";
 import ProductDetails from "../pages/ProductDetails";
 import ReportManagement from "../pages/ReportManagement";
+import MovementReport from "../pages/MovementReport";
+import MaintenanceReport from "../pages/MaintenanceReport";
+import RetirementReport from "../pages/RetirementReport";
 
 export const AppRoutes = () => {
     return (
@@ -26,6 +29,15 @@ export const AppRoutes = () => {
 
             {/* DETALLES DE UN PRODUCTO*/}
             <Route path="/producto/:productCode" element={<ProductDetails />} />
+
+            {/* REPORTE DE TRASLADOS */}
+            <Route path="/gestion-reportes/traslados/:productCode" element={<MovementReport />} />
+
+            {/* REPORTE DE TRASLADOS */}
+            <Route path="/gestion-reportes/mantenimiento/:productCode" element={<MaintenanceReport />} />
+
+            {/* REPORTE DE BAJAS */}
+            <Route path="/gestion-reportes/bajas" element={<RetirementReport />} />
 
             {/* REDIRECCION A INICIO EN CASO DE RUTA DESCONOCIDA*/}
             <Route path="*" element={<Navigate to="/" />} />
