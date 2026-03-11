@@ -14,82 +14,103 @@ import { categoryTranslations, conditionTranslations } from "../utils/productDic
 import { ProductCategory, ProductCondition, ProductStatus } from "../types/product.type";
 import { FooterLink } from "../components/ui/FooterLink";
 import { useState } from "react";
+import { productListMaintanceReportMock } from "../mock/reports/productsMaintenanceMock";
+import { productListTransferReportMock } from "../mock/reports/productsMovementMock";
 
 
+const reportLinks = (productCode: string) => [
+    {
+        key: "maintenance",
+        label: "Reportes de mantenimiento",
+        to: `/producto/${productCode}/mantenimientos`
+    },
+    {
+        key: "movements",
+        label: "Reportes de traslados",
+        to: `/producto/${productCode}/traslados`
+    },
+];
+
+
+type StatusOption = {
+    label: string;
+    to: (code: string) => string;
+    variant?: "danger" | "warning" | "primary" | "success" | "neutral" | "invisible";
+};
+
+const statusOptionsConfig: Record<ProductStatus, StatusOption[]> = {
+    [ProductStatus.ACTIVE]: [
+        { label: "Marcar en revisión", to: (c) => `/producto/${c}/revision` },
+        { label: "Marcar en desuso", to: (c) => `/producto/${c}/desuso` },
+        { label: "Marcar como extraviado", to: (c) => `/producto/${c}/extraviado` },
+        { label: "Dar de baja", to: (c) => `/producto/${c}/baja`, variant: "danger" }
+    ],
+
+    [ProductStatus.IN_REVIEW]: [
+        { label: "Aprobar revisión", to: (c) => `/producto/${c}/aprobar-revision` },
+        { label: "Marcar en desuso", to: (c) => `/producto/${c}/desuso` },
+        { label: "Marcar como extraviado", to: (c) => `/producto/${c}/extraviado` },
+        { label: "Dar de baja", to: (c) => `/producto/${c}/dar-de-baja`, variant: "danger" }
+    ],
+
+    [ProductStatus.UNUSABLE]: [
+        { label: "Marcar como reparado", to: (c) => `/producto/${c}/reparado` },
+        { label: "Dar de baja", to: (c) => `/producto/${c}/dar-de-baja`, variant: "danger" }
+    ],
+
+    [ProductStatus.LOST]: [
+        { label: "Marcar como encontrado", to: (c) => `/producto/${c}/encontrado` },
+        { label: "Dar de baja", to: (c) => `/producto/${c}/dar-de-baja`, variant: "danger" }
+    ],
+
+    [ProductStatus.RETIRED]: [
+        { label: "Habilitar", to: (c) => `/producto/${c}/habilitar` }
+    ]
+};
 
 // desplegar opciones para modificar el estado del producto segun el tipo de estado que tenga
 function getStatusOptions(productCode: string, productStatus: ProductStatus) {
 
-    let options: { label: string; to: string; variant?: "danger" | "warning" | "primary" | "success" | "neutral" | "invisible" }[] = [];
-
-    switch (productStatus) {
-        case ProductStatus.ACTIVE:
-            options = [
-                { label: "Marcar en revisión", to: `/producto/${productCode}/revision`, },
-                { label: "Marcar en desuso", to: `/producto/${productCode}/desuso` },
-                { label: "Marcar como extraviado", to: `/producto/${productCode}/extraviado` },
-                { label: "Dar de baja", to: `/producto/${productCode}/baja`, variant: "danger" }
-            ];
-            break;
-
-        case ProductStatus.IN_REVIEW:
-            options = [
-                { label: "Aprobar revisión", to: `/producto/${productCode}/aprobar-revision` },
-                { label: "Marcar en desuso", to: `/producto/${productCode}/desuso` },
-                { label: "Marcar como extraviado", to: `/producto/${productCode}/extraviado` },
-                { label: "Dar de baja", to: `/producto/${productCode}/dar-de-baja`, variant: "danger" }
-            ];
-            break;
-
-        case ProductStatus.UNUSABLE:
-            options = [
-                { label: "Marcar como reparado", to: `/producto/${productCode}/reparado` },
-                { label: "Dar de baja", to: `/producto/${productCode}/dar-de-baja`, variant: "danger" }
-            ];
-            break;
-
-        case ProductStatus.LOST:
-            options = [
-                { label: "Marcar como encontrado", to: `/producto/${productCode}/encontrado` },
-                { label: "Dar de baja", to: `/producto/${productCode}/dar-de-baja`, variant: "danger" }
-            ];
-            break;
-
-        case ProductStatus.RETIRED:
-            options = [
-                { label: "Habilitar", to: `/producto/${productCode}/habilitar` },
-            ];
-            break;
-
-        default:
-            options = [
-                { label: "No hay acciones disponibles", to: "#" }
-            ];
-    };
+    const options = statusOptionsConfig[productStatus] ?? [
+        { label: "No hay acciones disponibles", to: () => "#" }
+    ];
 
     return (
         <div className="flex flex-row gap-5 mt-4">
             {options.map((option, index) => (
                 <Button
                     key={index}
-                    to={option.to}
+                    to={option.to(productCode)}
                     variant={option.variant || "primary"}
                     className="text-sm"
                 >
-                    < span >{option.label}</span>
-                </Button >
-            ))
-            }
-        </div >
+                    <span>{option.label}</span>
+                </Button>
+            ))}
+        </div>
     );
 }
-
 
 export default function ProductDetails() {
 
     const { productCode } = useParams<{ productCode: string }>();;
 
     const productDetails = getProduct(productCode);
+
+    const code = productDetails?.productCode;
+
+    const reports = {
+        maintenance: productListMaintanceReportMock.some(
+            p => p.productCode === code
+        ),
+        movements: productListTransferReportMock.some(
+            p => p.productCode === code
+        )
+    };
+
+    const availableReports = reportLinks(productCode as string).filter(
+        report => reports[report.key as keyof typeof reports]
+    );
 
     const productStatus = productDetails?.status ?? ProductStatus.ACTIVE
     const productCategory = productDetails?.category ?? ProductCategory.OTHER;
@@ -227,7 +248,7 @@ export default function ProductDetails() {
                         <span className="font-bold text-foreground-muted">Última constatación: </span>
                         {productDetails?.lastCheckDate ?? 'Nunca'}
                     </p>
-                    {needsCheckReview && <Button className="cursor-pointer" variant="warning" to={`/product/${productCode}/check-review`}>
+                    {needsCheckReview && <Button className="cursor-pointer" variant="warning" to={`/producto/${productCode}/constatar`}>
                         <AlertTriangle size={24} strokeWidth={1.5} />
                     </Button>}
 
@@ -235,18 +256,27 @@ export default function ProductDetails() {
             </Card>
 
             {/* REPORTES DISPONIBLES */}
-            <Card>
-                <div className="flex flex-wrap items-center gap-4 justify-start text-foreground-muted">
-                    <p>
-                        <span className="font-bold text-foreground-muted">Reportes disponibles: </span>
-                    </p>
-                    <div className="flex flex-wrap items-center gap-6">
-                        <FooterLink label="Reportes de mantenimiento" to="/" />
-                        <FooterLink label="Reportes de traslados" to="/" />
-                    </div>
+            {availableReports.length > 0 && (
+                <Card>
+                    <div className="flex flex-wrap items-center gap-4 justify-start text-foreground-muted">
+                        <p>
+                            <span className="font-bold text-foreground-muted">
+                                Reportes disponibles:
+                            </span>
+                        </p>
 
-                </div>
-            </Card>
+                        <div className="flex flex-wrap items-center gap-6">
+                            {availableReports.map((report) => (
+                                <FooterLink
+                                    key={report.key}
+                                    label={report.label}
+                                    to={report.to}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </Card>
+            )}
 
         </div>
     );
