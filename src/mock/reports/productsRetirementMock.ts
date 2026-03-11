@@ -174,3 +174,28 @@ export const retirementDatabaseMock: RetirementHistoryResponse[] = [
     }
 
 ];
+
+// contar los productos dados de baja por un año especifico
+export const countRetirementsByYear = (data: RetirementHistoryResponse[], year: number): number => {
+    const yearStr = year.toString();
+
+    return data.reduce((total, item) => {
+        return item.transactionDate.startsWith(yearStr) ? total + 1 : total;
+    }, 0);
+};
+
+
+// filtrar y obtener los productos dados de baja por un año especifico
+export const getRetirementsByYear = (data: RetirementHistoryResponse[], year: number): RetirementHistoryResponse[] => {
+    const yearStr = year.toString();
+
+    return data.filter(item => item.transactionDate.startsWith(yearStr));
+};
+
+
+// total de reportes de bajas este año
+const currentYear = new Date().getFullYear();
+export const currentYearReports = countRetirementsByYear(retirementDatabaseMock, currentYear)
+
+
+

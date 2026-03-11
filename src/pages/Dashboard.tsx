@@ -11,10 +11,13 @@ import { getDept } from "../mock/departmentsMock";
 
 import { Package, AlertTriangle, FileDown } from "lucide-react";
 import { DepartmentNameFormat } from "../components/features/department/DepartmentNameFormat";
+import { currentYearReports } from "../mock/reports/productsRetirementMock";
 
 
 export default function Dashboard() {
     const { isExpanded, setIsExpanded } = useSidebar();
+
+    const currentRetirementReports = currentYearReports
 
     return (
         <div className="flex flex-col gap-8 md:px-6 lg:px-5 py-4" >
@@ -38,7 +41,7 @@ export default function Dashboard() {
 
                 <SummaryCard
                     title="Bajas del Año"
-                    value="0"
+                    value={currentRetirementReports}
                     icon={<FileDown size={70} strokeWidth={1.5} />}
                     bgColor="bg-danger"
                     to="/gestion-reportes/bajas"

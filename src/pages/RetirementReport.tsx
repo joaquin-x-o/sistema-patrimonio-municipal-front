@@ -9,7 +9,7 @@ import handleExportExcel from "../utils/handleExportExcel";
 
 
 import { RetirementHistoryColumnNames } from "../components/features/retirementHistory/RetirementHistoryColumnName";
-import { retirementDatabaseMock } from "../mock/reports/productsRetirementMock";
+import { currentYearReports, retirementDatabaseMock } from "../mock/reports/productsRetirementMock";
 
 
 export default function RetirementReport() {
@@ -17,10 +17,7 @@ export default function RetirementReport() {
     const [currentPage, setCurrentPage] = useState(1);
 
     const retirementReport = retirementDatabaseMock ?? [];
-
-
-    // control de grid en casos de overflow
-    //const gridControl = "wrap-break-word min-w-0";
+    const currentYear = new Date().getFullYear();
 
     return (
         <div className="flex flex-col gap-6 relative pb-20">
@@ -33,8 +30,8 @@ export default function RetirementReport() {
             <Card title="Reporte de productos dados de baja" centerTitle>
                 <div className="flex justify-between items-center text-foreground-muted">
                     <p>
-                        <span className="font-bold text-foreground-muted">Productos dados de baja este año (2026): </span>
-                        {retirementReport.length}
+                        <span className="font-bold text-foreground-muted">{`Productos dados de baja este año (${currentYear})`}: </span>
+                        {currentYearReports}
                     </p>
                 </div>
             </Card>
