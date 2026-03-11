@@ -20,7 +20,7 @@ export const productListMaintanceReportMock: ProductLightResponse[] = [
     }
 ];
 
-const maintenanceDatabaseMock: Record<number, MaintenanceHistoryResponse[]> = {
+export const maintenanceDatabaseMock: Record<number, MaintenanceHistoryResponse[]> = {
 
     // generador Honda
     106: [
