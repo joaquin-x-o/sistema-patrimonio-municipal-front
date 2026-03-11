@@ -41,7 +41,7 @@ export default function Dashboard() {
                     value="0"
                     icon={<FileDown size={70} strokeWidth={1.5} />}
                     bgColor="bg-danger"
-                    to="producto/reporte-bajas"
+                    to="/gestion-reportes/bajas"
                 />
             </div>
 
