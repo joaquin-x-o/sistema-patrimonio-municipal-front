@@ -36,7 +36,7 @@ export default function Dashboard() {
                     value="20"
                     icon={<AlertTriangle size={70} strokeWidth={1.5} />}
                     bgColor="bg-warning"
-                    to="producto/pendientes-revision"
+                    to="/producto/pendientes-revision"
                 />
 
                 <SummaryCard
